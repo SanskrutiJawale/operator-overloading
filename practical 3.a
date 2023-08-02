@@ -1,0 +1,54 @@
+//  Aim= Cpp program to demonstrate compile time polymorphism (operator overloading/ function overloading)
+//Operator overloading//
+#include<iostream>
+using namespace std;
+class complex //class declared
+{
+float real,img;
+public:
+complex()
+{
+real=0;
+img=0;
+}
+complex operator -(complex c)
+{
+complex c3;
+c3.real=real-c.real;
+c3.img=img-c.img;
+return c3;
+}
+friend complex operator+(complex a,complex b)
+{
+complex t;
+t.real=a.real+b.real;
+t.img= a.img+b.img;
+return t;
+}
+void getdata()
+{
+cout<<"enter the real number:";
+cin>>real;
+cout<<"enter the img number:";
+cin>>img;
+}
+void display()
+{
+cout<<real<<"+"<<img<<"i"<<endl;
+}
+};
+int main()
+{
+complex c1,c2,c3;
+c1.getdata();
+c2.getdata();
+cout<<"complex number is:"<<endl;
+c1.display();
+c2.display();
+cout<<"addition is:"<<endl;
+c3=c1+c2;
+c3.display();
+cout<<"substraction is:"<<endl;
+c3=c2-c1;
+c3.display();
+}
